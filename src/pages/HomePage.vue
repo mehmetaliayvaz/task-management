@@ -6,7 +6,12 @@
       </a-button>
       <a-row :gutter="16">
         <base-section title="Yapılacaklar">
-          <draggable :list="todos" group="todosapp">
+          <draggable
+            :list="todos"
+            group="todosapp"
+            ghost-class="on-drag"
+            animation="400"
+          >
             <base-section-item
               v-for="item in todos"
               :key="item.id"
@@ -15,7 +20,12 @@
           </draggable>
         </base-section>
         <base-section title="Yapılıyor">
-          <draggable :list="inProgress" group="todosapp">
+          <draggable
+            :list="inProgress"
+            group="todosapp"
+            ghost-class="on-drag"
+            animation="400"
+          >
             <base-section-item
               v-for="item in inProgress"
               :key="item.id"
@@ -24,7 +34,12 @@
           </draggable>
         </base-section>
         <base-section title="Yapıldı">
-          <draggable :list="completed" group="todosapp">
+          <draggable
+            :list="completed"
+            group="todosapp"
+            ghost-class="on-drag"
+            animation="400"
+          >
             <base-section-item
               v-for="item in completed"
               :key="item.id"
@@ -110,5 +125,8 @@ export default {
 <style>
 .addSectionBtn {
   margin-bottom: 20px;
+}
+.on-drag {
+  background-color: #29badf;
 }
 </style>
