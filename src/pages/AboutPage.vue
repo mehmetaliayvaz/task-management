@@ -1,16 +1,12 @@
 <template>
   <div class="wrapper">
-    <div class="container">
-      <a-button type="primary">
-        Add New Section
-      </a-button>
-    </div>
+    <div class="container">AboutPage</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HomePage",
+  name: "AboutPage",
   components: {},
   methods: {},
 };

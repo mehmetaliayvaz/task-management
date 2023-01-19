@@ -4,9 +4,11 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 
 const routes = [
-  { path: "/", component: HomePage },
+  { path: "/", component: HomePage, name: "home" },
+  { path: "/about", component: AboutPage, name: "about" },
   { path: "*", redirect: "/" },
 ];
 
