@@ -4,9 +4,23 @@
       <a-button type="primary" class="addSectionBtn">
         Add New Section
       </a-button>
-      <a-row>
-        <base-section v-for="i in 3" :key="i">
-          COL
+      <a-row :gutter="16">
+        <base-section title="Yapılacaklar">
+          <base-section-item v-for="item in todo" :key="item.id" :item="item" />
+        </base-section>
+        <base-section title="Yapılıyor">
+          <base-section-item
+            v-for="item in inProgress"
+            :key="item.id"
+            :item="item"
+          />
+        </base-section>
+        <base-section title="Yapıldı">
+          <base-section-item
+            v-for="item in completed"
+            :key="item.id"
+            :item="item"
+          />
         </base-section>
       </a-row>
     </div>
@@ -15,24 +29,72 @@
 
 <script>
 import BaseSection from "../components/BaseSection.vue";
+import BaseSectionItem from "../components/BaseSectionItem.vue";
 export default {
   name: "HomePage",
   components: {
     BaseSection,
+    BaseSectionItem,
   },
-  methods: {},
+  data() {
+    return {
+      todo: [
+        {
+          id: 1,
+          title: "Title 1",
+          content: "Content 1",
+        },
+        {
+          id: 2,
+          title: "Title 2",
+          content: "Content 2",
+        },
+        {
+          id: 3,
+          title: "Title 3",
+          content: "Content 3",
+        },
+      ],
+      inProgress: [
+        {
+          id: 1,
+          title: "Title 1",
+          content: "Content 1",
+        },
+        {
+          id: 2,
+          title: "Title 2",
+          content: "Content 2",
+        },
+        {
+          id: 3,
+          title: "Title 3",
+          content: "Content 3",
+        },
+      ],
+      completed: [
+        {
+          id: 1,
+          title: "Title 1",
+          content: "Content 1",
+        },
+        {
+          id: 2,
+          title: "Title 2",
+          content: "Content 2",
+        },
+        {
+          id: 3,
+          title: "Title 3",
+          content: "Content 3",
+        },
+      ],
+    };
+  },
 };
 </script>
 
 <style>
-.ant-col {
-  background-color: rgb(177, 177, 177);
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
-  padding: 8px 0;
-  text-align: center;
-}
-
 .addSectionBtn {
   margin-bottom: 20px;
 }
