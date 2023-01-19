@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Sidebar />
+    <the-sidebar />
     <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import Sidebar from "./components/Sidebar.vue";
+import TheSidebar from "./components/TheSidebar.vue";
 export default {
   name: "App",
   components: {
-    Sidebar,
+    TheSidebar,
   },
 };
 </script>
