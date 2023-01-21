@@ -13,10 +13,9 @@ const store = new Vuex.Store({
     },
   },
   actions: {
-    setLocalStorageSections({ state, commit }, payload) {
+    setLocalStorageSections({ commit }, payload) {
       localStorage.setItem("sections", JSON.stringify(payload));
       commit("setSections", payload);
-      console.log(state.sections);
     },
     getLocalStorageSections({ commit }) {
       if (localStorage.getItem("sections")) {
