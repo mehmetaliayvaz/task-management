@@ -53,6 +53,7 @@
 import BaseSection from "../components/BaseSection.vue";
 import BaseSectionItem from "../components/BaseSectionItem.vue";
 import draggable from "vuedraggable";
+import { mapGetters } from "vuex";
 
 export default {
   name: "HomePage",
@@ -65,6 +66,20 @@ export default {
     return {
       sections: [],
     };
+  },
+  created() {
+    this.$store.dispatch("getLocalStorageSections");
+  },
+  computed: {
+    ...mapGetters(["getSections"]),
+  },
+  watch: {
+    sections() {
+      this.$store.dispatch("setLocalStorageSections", this.sections);
+    },
+    getSections() {
+      this.sections = this.getSections;
+    },
   },
 };
 </script>
