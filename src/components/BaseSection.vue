@@ -26,9 +26,18 @@
           </button>
         </div>
       </div>
-      <a-button @click="$emit('addTask')" class="addTaskBtn">
-        + Add Task
-      </a-button>
+      <div class="section-top-right">
+        <a-button @click="$emit('addTask')" class="addTaskBtn">
+          + Add Task
+        </a-button>
+        <a-button
+          type="danger"
+          class="section-deleteIconBtn"
+          @click="$emit('deleteSection')"
+        >
+          <x-icon size="20" class="section-deleteIcon" />
+        </a-button>
+      </div>
     </div>
     <slot />
   </a-col>
@@ -39,6 +48,7 @@ import {
   ViewListIcon,
   PencilAltIcon,
   CheckCircleIcon,
+  XIcon,
 } from "@vue-hero-icons/outline";
 export default {
   name: "Section",
@@ -46,8 +56,9 @@ export default {
     ViewListIcon,
     PencilAltIcon,
     CheckCircleIcon,
+    XIcon,
   },
-  emits: ["addTask", "editTitle"],
+  emits: ["addTask", "editTitle", "deleteSection"],
   props: {
     title: {
       type: String,

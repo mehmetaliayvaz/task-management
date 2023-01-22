@@ -17,6 +17,7 @@
             :title="sectionItem.title"
             @addTask="showModal(sectionIndex)"
             @editTitle="editTitle(sectionIndex, $event)"
+            @deleteSection="deleteSection(sectionIndex)"
           >
             <draggable
               :list="sectionItem.items"
@@ -108,6 +109,10 @@ export default {
     },
     editTitle(sectionIndex, newTitle) {
       this.sections[sectionIndex].title = newTitle;
+      this.setLocalStorageSections();
+    },
+    deleteSection(sectionIndex) {
+      this.sections.splice(sectionIndex, 1);
       this.setLocalStorageSections();
     },
   },

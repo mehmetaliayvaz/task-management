@@ -19,12 +19,25 @@
   margin-bottom: 1rem;
 }
 
+.section-top-right {
+  display: flex;
+  align-items: center;
+}
+
+.section-deleteIconBtn {
+  margin-left: 0.5rem;
+  padding: 0.5rem !important;
+  background-color: #d50000 !important;
+}
+
 .section-editIconBtn,
-.section-checkIconBtn {
+.section-checkIconBtn,
+.section-deleteIconBtn {
   background-color: transparent;
   padding: 0;
   border: none;
-  display: flex;
+  display: flex !important;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -52,6 +65,6 @@
 }
 
 .addTaskBtn {
-  background-color: #d50000 !important;
+  background-color: #1386df !important;
   color: white !important;
 }
