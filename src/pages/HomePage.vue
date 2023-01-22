@@ -114,20 +114,4 @@ export default {
 };
 </script>
 
-<style>
-.sections {
-  display: flex;
-  flex-wrap: wrap;
-}
-.addSectionBtn {
-  margin-bottom: 3rem;
-  background-color: #ff5722 !important;
-  color: white !important;
-}
-.on-drag {
-  background-color: #29badf;
-}
-.newTask .ant-input {
-  margin-bottom: 1rem !important;
-}
-</style>
+<style></style>
