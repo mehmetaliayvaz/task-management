@@ -5,7 +5,7 @@
 
 .addSectionBtn {
   margin-bottom: 3rem;
-  background-color: #ff5722 !important;
+  background-color: #b73e3e !important;
   color: white !important;
 }
 
@@ -15,4 +15,8 @@
 
 .on-drag {
   background-color: #29badf !important;
+}
+
+.ant-modal-content .ant-btn-primary {
+  background-color: #b73e3e !important;
 }
