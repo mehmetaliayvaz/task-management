@@ -46,6 +46,12 @@
         <a-input v-model="task.title" placeholder="Title" />
         <a-input v-model="task.creator" placeholder="Creator" />
         <a-textarea v-model="task.content" placeholder="Content" />
+        <a-alert
+          v-if="!isRequiredFields && isClickRequiredFields"
+          type="error"
+          message="All fields are required."
+          banner
+        />
       </a-modal>
     </div>
   </div>
@@ -74,6 +80,7 @@ export default {
       },
       visible: false,
       activeModalIndex: null,
+      isClickRequiredFields: false,
     };
   },
   created() {
@@ -81,6 +88,13 @@ export default {
   },
   computed: {
     ...mapGetters(["getSections"]),
+    isRequiredFields() {
+      return (
+        this.task.title !== "" &&
+        this.task.creator !== "" &&
+        this.task.content !== ""
+      );
+    },
   },
   methods: {
     addSection() {
@@ -95,15 +109,19 @@ export default {
       this.visible = true;
     },
     handleOk() {
-      this.sections[this.activeModalIndex].items.push(this.task);
-      this.setLocalStorageSections();
-      this.task = {
-        title: "",
-        creator: "",
-        content: "",
-      };
+      this.isClickRequiredFields = true;
+      if (this.isRequiredFields) {
+        this.isClickRequiredFields = false;
+        this.sections[this.activeModalIndex].items.push(this.task);
+        this.setLocalStorageSections();
+        this.task = {
+          title: "",
+          creator: "",
+          content: "",
+        };
 
-      this.visible = false;
+        this.visible = false;
+      }
     },
     setLocalStorageSections() {
       this.$store.dispatch("setLocalStorageSections", this.sections);
