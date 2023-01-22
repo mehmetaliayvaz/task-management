@@ -22,6 +22,6 @@ export default {
 
 .app {
   display: flex;
-  background: #eee;
+  background: #f2f4f7;
 }
 </style>

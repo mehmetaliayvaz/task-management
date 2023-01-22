@@ -1,13 +1,5 @@
 <template>
-  <a-menu
-    style="width: 256px"
-    class="sidebar"
-    :default-selected-keys="['1']"
-    mode="inline"
-  >
-    <span slot="title"
-      ><a-icon type="setting" /><span>Navigation Three</span></span
-    >
+  <a-menu class="sidebar" :default-selected-keys="['1']" mode="inline">
     <a-menu-item key="1">
       <router-link :to="{ name: 'home' }">
         Tasks
@@ -35,6 +27,7 @@ export default {
 
 <style scoped>
 .sidebar {
-  height: 100vh;
+  min-height: 100vh;
+  width: 300px;
 }
 </style>

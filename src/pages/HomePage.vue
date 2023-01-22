@@ -1,24 +1,22 @@
 <template>
   <div class="wrapper">
     <div class="container">
-      <a-button type="primary" class="addSectionBtn" @click="addSection()">
+      <a-button type="danger" class="addSectionBtn" @click="addSection()">
         Add New Section
       </a-button>
-      <a-row :gutter="16">
+      <a-row :gutter="32">
         <draggable
           :list="sections"
           group="section"
+          class="sections"
           @change="setLocalStorageSections()"
         >
           <base-section
             v-for="(sectionItem, sectionIndex) in sections"
             :key="sectionIndex"
             :title="sectionItem.title"
+            @addTask="showModal(sectionIndex)"
           >
-            <a-button type="primary" @click="showModal(sectionIndex)"
-              >+</a-button
-            >
-
             <draggable
               :list="sectionItem.items"
               group="task"
@@ -35,12 +33,17 @@
           </base-section>
         </draggable>
       </a-row>
-      <div>
-        <a-modal v-model="visible" title="New Task" @ok="handleOk">
-          <a-input v-model="task.title" placeholder="Title" />
-          <a-input v-model="task.content" placeholder="Content" />
-        </a-modal>
-      </div>
+
+      <a-modal
+        v-model="visible"
+        title="New Task"
+        @ok="handleOk"
+        class="newTask"
+      >
+        <a-input v-model="task.title" placeholder="Title" />
+        <a-input v-model="task.creator" placeholder="Creator" />
+        <a-textarea v-model="task.content" placeholder="Content" />
+      </a-modal>
     </div>
   </div>
 </template>
@@ -63,6 +66,7 @@ export default {
       sections: [],
       task: {
         title: "",
+        creator: "",
         content: "",
       },
       visible: false,
@@ -92,6 +96,7 @@ export default {
       this.setLocalStorageSections();
       this.task = {
         title: "",
+        creator: "",
         content: "",
       };
 
@@ -102,9 +107,6 @@ export default {
     },
   },
   watch: {
-    // sections() {
-    //   this.setLocalStorageSections();
-    // },
     getSections() {
       this.sections = this.getSections;
     },
@@ -113,10 +115,17 @@ export default {
 </script>
 
 <style>
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+}
 .addSectionBtn {
-  margin-bottom: 20px;
+  margin-bottom: 3rem;
 }
 .on-drag {
   background-color: #29badf;
+}
+.newTask .ant-input {
+  margin-bottom: 1rem !important;
 }
 </style>
