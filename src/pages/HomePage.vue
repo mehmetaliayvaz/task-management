@@ -16,6 +16,7 @@
             :key="sectionIndex"
             :title="sectionItem.title"
             @addTask="showModal(sectionIndex)"
+            @editTitle="editTitle(sectionIndex, $event)"
           >
             <draggable
               :list="sectionItem.items"
@@ -104,6 +105,10 @@ export default {
     },
     setLocalStorageSections() {
       this.$store.dispatch("setLocalStorageSections", this.sections);
+    },
+    editTitle(sectionIndex, newTitle) {
+      this.sections[sectionIndex].title = newTitle;
+      this.setLocalStorageSections();
     },
   },
   watch: {

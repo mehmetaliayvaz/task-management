@@ -19,7 +19,8 @@
   margin-bottom: 1rem;
 }
 
-.section-editIcon-btn {
+.section-editIconBtn,
+.section-checkIconBtn {
   background-color: transparent;
   padding: 0;
   border: none;
@@ -34,6 +35,20 @@
   text-transform: uppercase;
   margin-bottom: 0 !important;
   margin-right: 0.5rem;
+}
+
+.section-editInput {
+  margin-right: 0.5rem !important;
+}
+
+.section-titleWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.section-editWrapper {
+  display: flex;
+  align-items: center;
 }
 
 .addTaskBtn {
