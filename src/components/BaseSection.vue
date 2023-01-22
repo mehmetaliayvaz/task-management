@@ -6,7 +6,13 @@
     class="section"
   >
     <div class="section-top">
-      <h2 class="section-title">{{ title }}</h2>
+      <div class="section-left">
+        <view-list-icon size="20" class="section-listIcon" />
+        <h2 class="section-title">{{ title }}</h2>
+        <button class="section-editIcon-btn">
+          <pencil-alt-icon size="20" class="section-editIcon" />
+        </button>
+      </div>
       <a-button @click="$emit('addTask')" class="addTaskBtn">
         + Add Task
       </a-button>
@@ -16,8 +22,13 @@
 </template>
 
 <script>
+import { ViewListIcon, PencilAltIcon } from "@vue-hero-icons/outline";
 export default {
   name: "Section",
+  components: {
+    ViewListIcon,
+    PencilAltIcon,
+  },
   emits: ["addTask"],
   props: {
     title: {
@@ -33,17 +44,41 @@ export default {
 .section {
   margin-bottom: 4rem;
 }
+
+.section-left {
+  display: flex;
+  align-items: center;
+  cursor: move;
+}
+
+.section-listIcon {
+  margin-right: 0.25rem;
+}
+
 .section-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
-.section-title {
-  font-size: 1rem;
-  text-transform: uppercase;
-  cursor: move;
+
+.section-editIcon-btn {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  display: flex;
+  cursor: pointer;
 }
+
+.section-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #667085;
+  text-transform: uppercase;
+  margin-bottom: 0 !important;
+  margin-right: 0.5rem;
+}
+
 .addTaskBtn {
   background-color: #d50000 !important;
   color: white !important;
