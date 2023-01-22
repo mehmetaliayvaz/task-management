@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="container">
-      <a-button type="danger" class="addSectionBtn" @click="addSection()">
+      <a-button class="addSectionBtn" @click="addSection()">
         Add New Section
       </a-button>
       <a-row :gutter="32">
@@ -121,6 +121,8 @@ export default {
 }
 .addSectionBtn {
   margin-bottom: 3rem;
+  background-color: #ff5722 !important;
+  color: white !important;
 }
 .on-drag {
   background-color: #29badf;

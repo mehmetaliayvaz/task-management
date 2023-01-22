@@ -7,7 +7,9 @@
   >
     <div class="section-top">
       <h2 class="section-title">{{ title }}</h2>
-      <a-button type="primary" @click="$emit('addTask')">+ Add Task</a-button>
+      <a-button @click="$emit('addTask')" class="addTaskBtn">
+        + Add Task
+      </a-button>
     </div>
     <slot />
   </a-col>
@@ -29,7 +31,7 @@ export default {
 
 <style>
 .section {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 .section-top {
   display: flex;
@@ -40,5 +42,9 @@ export default {
 .section-title {
   font-size: 1rem;
   text-transform: uppercase;
+}
+.addTaskBtn {
+  background-color: #d50000 !important;
+  color: white !important;
 }
 </style>
