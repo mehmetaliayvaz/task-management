@@ -1,6 +1,11 @@
 <template>
   <div class="section-item">
-    <h3 class="section-item-title">{{ item.title }}</h3>
+    <div class="section-item-titleWrapper">
+      <h3 class="section-item-title">{{ item.title }}</h3>
+      <button class="section-item-deleteIconBtn" @click="$emit('deleteTask')">
+        <x-icon size="16" class="section-item-deleteIcon" />
+      </button>
+    </div>
     <div class="section-item-info">
       <span>12th Jan</span>
       <span style="margin: 0 0.5rem;">·</span>
@@ -14,8 +19,13 @@
 </template>
 
 <script>
+import { XIcon } from "@vue-hero-icons/outline";
 export default {
   name: "BaseSectionItem",
+  components: {
+    XIcon,
+  },
+  emits: ["deleteTask"],
   props: {
     item: {
       type: Object,

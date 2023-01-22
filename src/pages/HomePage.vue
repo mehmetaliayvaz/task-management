@@ -27,9 +27,10 @@
               @change="setLocalStorageSections()"
             >
               <base-section-item
-                v-for="taskItem in sectionItem.items"
-                :key="taskItem.id"
+                v-for="(taskItem, taskIndex) in sectionItem.items"
+                :key="taskIndex"
                 :item="taskItem"
+                @deleteTask="deleteTask(sectionIndex, taskIndex)"
               />
             </draggable>
           </base-section>
@@ -113,6 +114,10 @@ export default {
     },
     deleteSection(sectionIndex) {
       this.sections.splice(sectionIndex, 1);
+      this.setLocalStorageSections();
+    },
+    deleteTask(sectionIndex, taskIndex) {
+      this.sections[sectionIndex].items.splice(taskIndex, 1);
       this.setLocalStorageSections();
     },
   },
