@@ -7,7 +7,7 @@
       </button>
     </div>
     <div class="section-item-info">
-      <span>12th Jan</span>
+      <span>{{ date }}</span>
       <span style="margin: 0 0.5rem;">·</span>
       <span>
         Created by
@@ -20,6 +20,7 @@
 
 <script>
 import { XIcon } from "@vue-hero-icons/outline";
+import dayjs from "dayjs";
 export default {
   name: "BaseSectionItem",
   components: {
@@ -30,6 +31,11 @@ export default {
     item: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    date() {
+      return dayjs(this.item.date).format("D MMM");
     },
   },
 };

@@ -77,6 +77,7 @@ export default {
         title: "",
         creator: "",
         content: "",
+        date: new Date(),
       },
       visible: false,
       activeModalIndex: null,
