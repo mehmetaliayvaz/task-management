@@ -55,3 +55,16 @@
 .sidebar .ant-menu-item-selected {
   background-color: #f2f4f7 !important;
 }
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 25%;
+    padding: 0 !important;
+  }
+  .sidebar .sidebar-item-icon {
+    display: none;
+  }
+  .sidebar .sidebar-item-right {
+    margin-left: 0.25rem;
+  }
+}
