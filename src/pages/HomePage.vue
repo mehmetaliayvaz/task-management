@@ -82,7 +82,7 @@ export default {
   methods: {
     addSection() {
       this.sections.push({
-        title: "New Section",
+        title: `Section ${this.sections.length + 1}`,
         items: [],
       });
       this.setLocalStorageSections();

@@ -42,6 +42,7 @@ export default {
 .section-title {
   font-size: 1rem;
   text-transform: uppercase;
+  cursor: move;
 }
 .addTaskBtn {
   background-color: #d50000 !important;

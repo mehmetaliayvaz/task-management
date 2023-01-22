@@ -25,6 +25,14 @@ export default {
 </script>
 
 <style>
+.section-item {
+  background-color: #fcfcfd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  cursor: move;
+}
 .section-item-title {
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
@@ -35,12 +43,5 @@ export default {
   margin-bottom: 1rem;
   font-size: 0.75rem;
   font-weight: 500;
-}
-.section-item {
-  background-color: #fcfcfd;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
 }
 </style>
