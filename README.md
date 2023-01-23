@@ -1,6 +1,6 @@
 # Task-Management
 
-![](/task-management.png)
+![](./public/task-management.png)
 
 ## About the Project
 
