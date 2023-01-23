@@ -1,5 +1,7 @@
 # Task-Management
 
+![](/task-management.png)
+
 ## About the Project
 
 With Task-Management, you can plan your tasks and take notes. Your tasks are saved in localstorage.
